@@ -13,5 +13,6 @@ function create() {
         cd MyProjects
         echo now this
     fi
-    mkdir $1;
+    mkdir $1
+    cd $1
 }

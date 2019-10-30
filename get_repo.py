@@ -11,10 +11,10 @@ args = parser.parse_args()
 
 
 def create_repo():
-    directoryName = args.git
+    dirName = args.git
     user = Github(userName, passWord).get_user()
-    repo = user.create_repo(directoryName)
-    print("Succesfully created repository {}".format(directoryName))
+    repo = user.create_repo(dirName)
+    print("Succesfully created repository {}".format(dirName))
 
 
 if __name__ == "__main__":
