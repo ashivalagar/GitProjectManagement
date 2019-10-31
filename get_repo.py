@@ -1,19 +1,28 @@
+#!/usr/bin/python
+
 import argparse
 from github import Github
 
-userName = "YOUR_GIT_USERNAME"
-passWord = "YOUR_GIT_PASSWORD"
+userName = "$(Enter Git UserName)"
+passWord = "$(Enter Git Password)"
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    "git", type=str, help="Enter the name of the repository you want to create")
+    "dir", type=str, help="Enter the name of the repository you want to create")
+parser.add_argument(
+    "vis", type=str, help="Enter whether you want the repository to be private or not")
 args = parser.parse_args()
 
 
 def create_repo():
-    dirName = args.git
+    dirName = args.dir
+    if (args.vis == "Private"):
+        privateRepo = True
+    else:
+        privateRepo = False
     user = Github(userName, passWord).get_user()
-    repo = user.create_repo(dirName)
+    print(privateRepo)
+    repo = user.create_repo(dirName, private=privateRepo)
     print("Succesfully created repository {}".format(dirName))
 
 
