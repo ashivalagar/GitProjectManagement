@@ -1,8 +1,8 @@
 import argparse
 from github import Github
 
-userName = "$(Enter Your Git User Name)"
-passWord = "$(Enter Your Git Password)"
+userName = "YOUR_GIT_USERNAME"
+passWord = "YOUR_GIT_PASSWORD"
 
 parser = argparse.ArgumentParser()
 parser.add_argument(

@@ -7,12 +7,19 @@ function create() {
     if [ -d "./MyProjects" ]
     then
         cd MyProjects
-        echo this
+        # echo this
     else
         mkdir MyProjects
         cd MyProjects
-        echo now this
+        # echo now this
     fi
     mkdir $1
     cd $1
+    git init
+    git remote add origin git@github.com:ashivalagar/$1.git
+    touch README.md
+    git add .
+    git commit -m "Initial Commit"
+    git push -u origin master
+    code .
 }
